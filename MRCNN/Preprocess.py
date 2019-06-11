@@ -5,7 +5,7 @@ import gc
 import numpy as np
 import datetime 
 import linecache
-
+import pandas as pd
 
 
 
@@ -27,7 +27,7 @@ def convertSeqToArray(Seq_charnum):
   '''
   
  #Parameter Setting
- bp = 200
+ bp = 400
  i = 0
  fl=open(seq_out_name , 'w')
  number = 1 #the number of Chromosome changed add one column for '1'
@@ -128,33 +128,33 @@ def convertSeqToArray(Seq_charnum):
 #produce .npy object
  k = 2
  while(2<=k<=9):
- In_name  = '%d.csv' % k
- out_name = 'file_out_name' % k
- seq = []
- with open(In_name) as f:
-	for line in f:
-	 seq.append(line)
- seq = "".join(list(seq))
- seq = seq.splitlines()
- oc = [[] for i in range(0,len(seq))]
- for i in range(0,len(seq)):
-  for j in range(0,len(seq[i])):
-	 if(seq[i][j] == '0'):
-	  oc[i].append([0,0,0,0])
-	 if(seq[i][j] == '1'):
-	  oc[i].append([0,0,0,1])
-   if(seq[i][j] == '2'):
-	  oc[i].append([0,0,1,0])
-   if(seq[i][j] == '3'):
-    oc[i].append([0,1,0,0])
-	 if(seq[i][j] == '4'):
-	  oc[i].append([1,0,0,0])
- del seq
- Array = np.array(oc)
- np.save(out_name,Array) 
- del Array
- k = k + 1
- 
+     In_name  = '%d.csv' % k
+     out_name = 'file_out_name' % k
+     seq = []
+     with open(In_name) as f:
+        for line in f:
+         seq.append(line)
+     seq = "".join(list(seq))
+     seq = seq.splitlines()
+     oc = [[] for i in range(0,len(seq))]
+     for i in range(0,len(seq)):
+      for j in range(0,len(seq[i])):
+         if(seq[i][j] == '0'):
+          oc[i].append([0,0,0,0])
+         if(seq[i][j] == '1'):
+            oc[i].append([0,0,0,1])
+       if(seq[i][j] == '2'):
+          oc[i].append([0,0,1,0])
+       if(seq[i][j] == '3'):
+        oc[i].append([0,1,0,0])
+         if(seq[i][j] == '4'):
+          oc[i].append([1,0,0,0])
+     del seq
+     Array = np.array(oc)
+     np.save(out_name,Array)
+     del Array
+     k = k + 1
+
  
  
  return Array

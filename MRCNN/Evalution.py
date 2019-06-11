@@ -11,7 +11,7 @@ from keras import backend as cmp
 
 
 ##########################
-def ResOfSitesDiv(y,z)
+def ResOfSitesDiv(y,z):
  '''
   First select The hyper, hypo, and medium methylation sites of 
   the original methylation data in the test set   and then do the 
@@ -39,7 +39,7 @@ def ResOfSitesDiv(y,z)
  
  
  
-def ResMetrics(y,z)
+def ResMetrics(y,z):
  MSE = mse(y, z)** 0.5
  MAE = mae(y,z) 
  ResLoss = np.concatenate((MSE,MAE),axis=0)

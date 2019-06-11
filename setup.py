@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(name='MRCNN',
       version='0.0.1',
       description='Regression of CpG methylation by Deep Learning Method ',
-      long_description=read('README.md'),
+      long_description=open('README.md'),
       author='QiTian',
       author_email='tqglowing@gmail.com',
       license="MIT",
